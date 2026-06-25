@@ -1,0 +1,18 @@
+Environnement,Ressource,SKU,Quantite,Cout_mensuel_EUR
+Production,App Service API,P1v3 Linux,2,280
+Production,Static Web Apps,Standard,1,80
+Production,Azure SQL,S3 100 DTU,1,450
+Production,SQL geo-replica,S3 secondary,1,450
+Production,Redis Cache,C1 Standard,1,120
+Production,Azure AI Search,Basic,1,220
+Production,Service Bus,Standard namespace,1,10
+Production,Functions Premium,EP1,1,140
+Production,API Management,Standard 1 unit,1,600
+Production,Front Door Premium,Base + WAF,1,280
+Production,Blob Storage,500 Go Hot GRS,1,10
+Production,Key Vault,Standard,1,5
+Production,Application Insights,30 Go,1,75
+Production,Bande passante sortante,2 To,1,160
+Staging,App Service + SQL + Redis,Mix,1,600
+Dev,App Service B2 + SQL Basic,Mix,1,300
+Total,,,,3780

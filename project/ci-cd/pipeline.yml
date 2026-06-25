@@ -1,0 +1,109 @@
+# CI/CD Pipeline — ShopFlow API
+# GitHub Actions — déploiement Azure App Service
+
+name: ShopFlow CI/CD
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+env:
+  DOTNET_VERSION: '8.0.x'
+  AZURE_WEBAPP_NAME: shopflow-api
+  PROJECT_PATH: src/ShopFlow.Api/ShopFlow.Api.csproj
+  PUBLISH_PATH: ./publish
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  build:
+    name: Build & Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      - name: Restore
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --no-restore --configuration Release
+
+      - name: Unit tests
+        run: dotnet test --no-build --configuration Release --verbosity normal --collect:"XPlat Code Coverage"
+
+      - name: Publish
+        run: dotnet publish ${{ env.PROJECT_PATH }} -c Release -o ${{ env.PUBLISH_PATH }}
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: shopflow-api
+          path: ${{ env.PUBLISH_PATH }}
+
+  deploy-staging:
+    name: Deploy Staging
+    needs: build
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    environment: staging
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: shopflow-api
+          path: ${{ env.PUBLISH_PATH }}
+
+      - name: Azure login (OIDC)
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      - name: Deploy to staging slot
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: ${{ env.AZURE_WEBAPP_NAME }}
+          slot-name: staging
+          package: ${{ env.PUBLISH_PATH }}
+
+      - name: Smoke test
+        run: |
+          sleep 30
+          curl -f https://${{ env.AZURE_WEBAPP_NAME }}-staging.azurewebsites.net/health/ready
+
+  deploy-production:
+    name: Deploy Production
+    needs: deploy-staging
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: https://api.shopflow.com
+    steps:
+      - name: Azure login (OIDC)
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      - name: Swap staging to production
+        run: |
+          az webapp deployment slot swap \
+            --resource-group rg-shopflow-prod \
+            --name ${{ env.AZURE_WEBAPP_NAME }} \
+            --slot staging \
+            --target-slot production
+
+      - name: Production health check
+        run: curl -f https://api.shopflow.com/health/ready
