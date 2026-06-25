@@ -98,7 +98,7 @@ Pour chaque cas, indiquez :
 <summary>Corrigé indicatif</summary>
 
 | Cas | CAP | ACID/BASE |
-|---- | --- | ----------|
+| --- | --- | ---------  |
 | Commentaires | AP | BASE — délai d'affichage acceptable |
 | Paiement | CP | ACID — incohérence = perte financière |
 | Analytics J-1 | AP | BASE — données non temps réel |
@@ -137,37 +137,37 @@ Complétez la fiche ci-dessous. Vous pouvez la copier dans un fichier `trade-off
 
 ## Scalabilité
 | Approche | Quand l'utiliser | Risque principal |
-|--------- | ---------------- | -----------------|
+| -------- | ---------------- | ----------------  |
 | Verticale | | |
 | Horizontale | | |
 
 ## Données
 | Modèle | Quand l'utiliser | Risque principal |
-|------- | ---------------- | -----------------|
+| ------ | ---------------- | ----------------  |
 | ACID | | |
 | BASE | | |
 
 ## Architecture
 | Style | Quand l'utiliser | Risque principal |
-|------ | ---------------- | -----------------|
+| ----- | ---------------- | ----------------  |
 | Monolithe | | |
 | Microservices | | |
 
 ## CAP (lors d'une partition)
 | Choix | Quand l'utiliser | Exemple métier |
-|------ | ---------------- | ---------------|
+| ----- | ---------------- | --------------  |
 | CP | | |
 | AP | | |
 
 ## Performance
 | Priorité | Quand | Technique clé |
-|--------- | ----- | --------------|
+| -------- | ----- | -------------  |
 | Latence | | |
 | Throughput | | |
 
 ## Disponibilité
 | Niveau SLA | Coût / complexité | Exemple de système |
-|----------- | ----------------- | ------------------|
+| ---------- | ----------------- | -----------------  |
 | 99,9 % | | |
 | 99,99 % | | |
 ```
@@ -200,7 +200,7 @@ Définissez au minimum :
 #### Template endpoints
 
 | Méthode | Endpoint | Description |
-|-------- | -------- | ------------|
+| ------- | -------- | -----------  |
 | POST | `/api/v1/...` | |
 | GET | `/api/v1/...` | |
 | ... | | |
@@ -270,7 +270,7 @@ Utilisez la [checklist de design review](../../templates/design-review-checklist
 ## Livrables à rendre
 
 | Fichier | Exercice | Obligatoire |
-|-------- | -------- | ------------|
+| ------- | -------- | -----------  |
 | `trade-offs-summary.md` | 5 | Oui |
 | `api-design.md` (spec + justification) | 6A + 6C | Oui |
 | `architecture-diagram` (.png, .drawio ou Mermaid dans le .md) | 6B | Oui |
@@ -281,7 +281,7 @@ Utilisez la [checklist de design review](../../templates/design-review-checklist
 ## Critères d'évaluation
 
 | Critère | Attendu |
-|-------- | --------|
+| ------- | -------  |
 | Compromis | Chaque choix technique a un « pourquoi » |
 | Chiffres | Au moins une estimation d'ordre de grandeur |
 | API | Ressources claires, HTTP sémantique, erreurs gérées |

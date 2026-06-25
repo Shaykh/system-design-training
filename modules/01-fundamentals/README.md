@@ -20,7 +20,7 @@
 ## Contenu
 
 | Thème | Fichier |
-|-------|---------|
+| -----  | -------  |
 | Théorie complète       | [`theory.md`](theory.md)       |
 | Exercices et livrables | [`exercises.md`](exercises.md) |
 

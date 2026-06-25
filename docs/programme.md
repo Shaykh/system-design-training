@@ -159,21 +159,21 @@ Chaque module suit le même rythme :
 
 ## Projet final
 
-**Dossier :** [`project/`](../project/)
+**Dossier :** [`project/`](../project/) — solution de référence [**ShopFlow**](../project/README.md) (e-commerce Azure)
 
 Concevoir un système complet de niveau entreprise. Exemples de sujets :
 
-- Plateforme e-commerce
+- Plateforme e-commerce *(référence fournie)*
 - CRM
 - API multi-tenant
 
 **À produire :**
 
-- Architecture complète (diagrammes C4)
-- Dossier d'architecture technique ([template DAT](../templates/dat-template.md))
-- Pipeline CI/CD
+- Architecture complète (diagrammes C4) — voir [architecture ShopFlow](../project/architecture/README.md)
+- Dossier d'architecture technique ([template DAT](../templates/dat-template.md) · [exemple](../project/dat/DAT.md))
+- Pipeline CI/CD — voir [pipeline.yml](../project/ci-cd/pipeline.yml)
 - Stratégie de monitoring et de sécurité
-- Chiffrage Azure
+- Chiffrage Azure — voir [estimation](../project/cost/azure-cost-estimate.md)
 
 ---
 
@@ -189,6 +189,8 @@ Concevoir un système complet de niveau entreprise. Exemples de sujets :
 ---
 
 ## Modules bonus (niveau avancé)
+
+Détail et exercices : [bonus.md](bonus.md)
 
 À aborder après le projet final ou en parallèle selon votre rythme :
 
@@ -215,6 +217,8 @@ Vous avez validé la formation lorsque vous pouvez, pour un cas donné :
 
 ## Documents associés
 
+- [Index docs](README.md)
 - [Planning détaillé](planning.md) — calendrier semaine par semaine
 - [Ressources](ressources.md) — livres, liens, outils
+- [Bonus](bonus.md) — sujets avancés
 - [`summary.md`](../summary.md) — référence complète du programme

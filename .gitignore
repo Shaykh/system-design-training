@@ -1,0 +1,39 @@
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vs/
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.user
+*.suo
+
+# .NET
+bin/
+obj/
+publish/
+*.dll
+*.exe
+TestResults/
+coverage/
+
+# Secrets — ne jamais committer
+.env
+.env.*
+*.pfx
+appsettings.*.local.json
+secrets.json
+
+# Logs et temporaires
+*.log
+tmp/
+temp/
+
+# Livrables apprenant (optionnel — décommenter si vous versionnez vos travaux à part)
+# **/trade-offs-summary.md
+# **/api-design.md
+# **/data-architecture.md
+# **/design-*.md

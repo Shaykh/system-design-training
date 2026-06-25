@@ -179,4 +179,5 @@ Pour les ateliers .NET (module 2) :
 
 - [Programme](programme.md) — parcours et livrables
 - [Planning](planning.md) — calendrier semaine par semaine
+- [Bonus](bonus.md) — sujets avancés post-formation
 - [`summary.md`](../summary.md) — référence du programme

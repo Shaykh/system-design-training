@@ -172,11 +172,11 @@ Pour le contenu détaillé de chaque module, voir [programme.md](programme.md).
 
 **Livrables attendus dans [`project/`](../project/) :**
 
-- `requirements.md` complété
-- Diagrammes dans `architecture/`
-- DAT dans `dat/`
-- Estimation dans `cost/`
-- Pipeline dans `ci-cd/`
+- `requirements.md` complété — [référence ShopFlow](../project/requirements.md)
+- Diagrammes dans `architecture/` — [Mermaid + guide Draw.io](../project/architecture/README.md)
+- DAT dans `dat/` — [exemple DAT.md](../project/dat/DAT.md)
+- Estimation dans `cost/` — [azure-cost-estimate.md](../project/cost/azure-cost-estimate.md)
+- Pipeline dans `ci-cd/` — [pipeline.yml](../project/ci-cd/pipeline.yml)
 
 ---
 
@@ -230,6 +230,8 @@ Utilisez ce tableau pour suivre votre avancement :
 
 ## Documents associés
 
+- [Index documentation](README.md)
 - [Programme](programme.md) — contenu et livrables par module
 - [Ressources](ressources.md) — outils et références
+- [Bonus](bonus.md) — sujets avancés
 - [`summary.md`](../summary.md) — référence synthétique
