@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="OrderApp.Api/OrderApp.Api.csproj" />
+  <Project Path="OrderApp.Application/OrderApp.Application.csproj" />
+  <Project Path="OrderApp.Domain.Tests/OrderApp.Domain.Tests.csproj" />
+  <Project Path="OrderApp.Domain/OrderApp.Domain.csproj" />
+  <Project Path="OrderApp.Infrastructure/OrderApp.Infrastructure.csproj" />
+</Solution>
